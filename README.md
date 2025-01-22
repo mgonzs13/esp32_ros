@@ -4,7 +4,7 @@ This repository demonstrates a simple use case of **micro-ROS** with an ESP32 bo
 
 ## Installation and Usage
 
-### 1. Install micro-ROS
+### 1. Install micro-ROS Setup and Agent
 
 Follow the [official micro-ROS installation guide](https://micro.ros.org/docs/tutorials/core/first_application_linux/) to set up micro-ROS. Below is a summary of the steps:
 
@@ -51,6 +51,11 @@ flatpak install flathub cc.arduino.arduinoide -y
 # Copy the message package to the extra_packages directory
 cp -r esp32_msgs ~/Arduino/libraries/micro_ros_arduino/extras/library_generation/extra_packages
 
+# Modify the colcon.meta file to use the parameter server in micro_ros_arduino
+# You have to increase the max services to 6
+# Take a look at the provided colcon.meta file in this repository
+nano ~/Arduino/libraries/micro_ros_arduino/extras/library_generation/colcon.meta
+
 # Create the code for Arduino
 cd ~/Arduino/libraries/micro_ros_arduino
 docker run -it --rm -v $(pwd):/project --env MICROROS_LIBRARY_FOLDER=extras microros/micro_ros_static_library_builder:humble
@@ -58,11 +63,6 @@ docker run -it --rm -v $(pwd):/project --env MICROROS_LIBRARY_FOLDER=extras micr
 # Optional: Copy the ESP32 library for the ESP32-S3 board
 cd ~/Arduino/libraries/micro_ros_arduino/src
 cp -r esp32 esp32s3
-
-# Modify the colcon.meta file to use the parameter server in micro_ros_arduino
-# Take a look at the provided colcon.meta file in this repository
-cd ~/Arduino/libraries/micro_ros_arduino/extras/library_generation/extra_packages
-nano colcon.meta
 ```
 
 ### 4. Configure the Arduino IDE
@@ -74,7 +74,7 @@ nano colcon.meta
 
 ### 5. Load the Code and Run the micro-ROS Agent
 
-1. Load the code from the `src` directory onto the ESP32 board using the Arduino IDE.
+1. Load the code from the `esp32_node` directory onto the ESP32 board using the Arduino IDE.
 2. Start the micro-ROS agent:
 
 ```bash
