@@ -1,4 +1,4 @@
-# ESP32 ROS Integration
+# esp32_ros
 
 This repository demonstrates a simple use case of **micro-ROS** with an ESP32 board (specifically the ESP32-S3) to publish Wi-Fi scan data. Additionally, it provides a service to control the board's LED.
 
