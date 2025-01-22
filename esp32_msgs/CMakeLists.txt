@@ -13,6 +13,7 @@ find_package(std_msgs REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Wifi.msg"
   "msg/WifiArray.msg"
+  "msg/Color.msg"
   "srv/SetLedColor.srv"
   DEPENDENCIES std_msgs
 )
