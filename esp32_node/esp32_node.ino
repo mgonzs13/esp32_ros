@@ -68,7 +68,7 @@ esp32_msgs__msg__WifiArray wifi_msg;
 esp32_msgs__srv__SetLedColor_Request set_led_color_req;
 esp32_msgs__srv__SetLedColor_Response set_led_color_res;
 
-int64_t max_wifis = 32;
+int64_t max_wifis = 10;
 Adafruit_NeoPixel strip =
     Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
