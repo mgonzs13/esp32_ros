@@ -61,7 +61,7 @@ cp -r esp32 esp32s3
 
 # Modify the colcon.meta file to use the parameter server in micro_ros_arduino
 # Take a look at the provided colcon.meta file in this repository
-cp ~/Arduino/libraries/micro_ros_arduino/extras/library_generation/extra_packages
+cd ~/Arduino/libraries/micro_ros_arduino/extras/library_generation/extra_packages
 nano colcon.meta
 ```
 
